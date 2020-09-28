@@ -4,6 +4,9 @@
 # Version 1 created with Love by Jay Calderwood
 # Change Log
 # 09/27/20 Initial Version
+# 09/28/20 V.1.0.1 
+## Added colors - Pretty
+#####
 
 function Start-Menu
 
@@ -11,12 +14,12 @@ function Start-Menu
      param (
            [string]$Title = 'Delegated Access Menu'
      )
-     Write-Host "================ $Title ================"
+     Write-Host -foregroundcolor DarkBlue "================ $Title ================"
     
-     Write-Host "1: Press '1' To connect to MSOL."
-     Write-Host "2: Press '2' To connect to EXO."
-     Write-Host "3: Press '3' To connect to SFBO/Teams."
-     Write-Host "Q: Press 'Q' to quit."
+     Write-Host -ForegroundColor Green "1: Press '1' To connect to MSOL."
+     Write-Host -ForegroundColor Green "2: Press '2' To connect to EXO."
+     Write-Host -ForegroundColor Green "3: Press '3' To connect to SFBO/Teams."
+     Write-Host -ForegroundColor DarkGreen "Q: Press 'Q' to quit."
 }
 
 do
