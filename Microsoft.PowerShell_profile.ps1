@@ -42,9 +42,8 @@ Function Connect-Skype{
  
 Write-Output "Getting the Teams/SFBO cmdlets...Please wait..."
 $dmn = Read-Host "What is the Client's domain?"
-new-csonlinesession -overrideadmindomain $dmn
- 
+Import-module skypeonlineconnector
+$session = new-csonlinesession -overrideadmindomain $dmn
+Import-pssession -session $session 
 }
-
-
 

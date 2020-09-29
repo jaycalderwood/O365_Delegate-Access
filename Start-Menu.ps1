@@ -6,6 +6,8 @@
 # 09/27/20 Initial Version
 # 09/28/20 V.1.0.1 
 ## Added colors - Pretty
+# 09/29/20 V.1.0.2
+## Fixed Module for SFBO/Teams
 #####
 
 function Start-Menu
