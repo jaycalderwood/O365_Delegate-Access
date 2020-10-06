@@ -8,6 +8,8 @@
 ## Added colors - Pretty
 # 09/29/20 V.1.0.2
 ## Fixed Module for SFBO/Teams
+# 10/06/20 V.1.0.3
+## Added Menu Option to clear PS_Sessions
 #####
 
 function Start-Menu
@@ -21,6 +23,7 @@ function Start-Menu
      Write-Host -ForegroundColor Green "1: Press '1' To connect to MSOL."
      Write-Host -ForegroundColor Green "2: Press '2' To connect to EXO."
      Write-Host -ForegroundColor Green "3: Press '3' To connect to SFBO/Teams."
+     Write-Host -ForegroundColor Orange "K: Press 'K' to Kill all Powershell Sessions"
      Write-Host -ForegroundColor DarkGreen "Q: Press 'Q' to quit."
 }
 
@@ -40,7 +43,13 @@ do
            } '3' {
                 Connect-Skype
                 'You are Connected to Skype / Teams'
-          
+           }
+             '4' {
+                 End-PSS
+                 'Ending all PS Sessions.....' 
+             
+
+
            } 'q' {
                 return
            }

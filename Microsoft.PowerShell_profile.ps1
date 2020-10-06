@@ -47,3 +47,7 @@ $session = new-csonlinesession -overrideadmindomain $dmn
 Import-pssession -session $session 
 }
 
+Function EndPSS {
+Write-Output "Clearing PS Sessions.... Goodbye Cruel World."
+Get-PSSession | Remove-PSSession
+}
