@@ -51,3 +51,35 @@ Function EndPSS {
 Write-Output "Clearing PS Sessions.... Goodbye Cruel World."
 Get-PSSession | Remove-PSSession
 }
+
+Function Connect-AzureOrg {
+ 
+    $name = Read-Host "Type part of the organization's name"
+    $Customers = @()
+    $Customers = @(Get-MsolPartnerContract -All | ? {$_.Name -match $name})
+ 
+    if($Customers.Count -gt 1){
+ 
+        Write-Host "More than 1 customer found, rerun the function:"
+        Write-Host " "
+ 
+        ForEach($Customer in $Customers){
+ 
+            Write-Host $Customer.Name
+        }
+    }
+ 
+    if($Customers.count -eq 0){
+     
+        Write-Host "No customers found, rerun the function"
+    }
+ 
+    if($Customers.Count -eq 1){
+ 
+    $global:cid = $Customers.tenantid
+    
+    connect-azuread -tenantid $cid
+    Write-Host - foregroundcolor Magenta"$($Customers.name) selected. Use Azure AD commands against this tenant."
+    }
+ 
+}

@@ -1,6 +1,9 @@
 #####
 # This script will use the built in profile functions to connect to O365 Services
-# With delegated Access
+# With delegated access. Some partners will not allow the creation of an Azure App
+# Functions are set in the Powershell Profile, which is included.
+#####
+#####
 # Version 1 created with Love by Jay Calderwood
 # Change Log
 # 09/27/20 Initial Version
@@ -10,6 +13,9 @@
 ## Fixed Module for SFBO/Teams
 # 10/06/20 V.1.0.3
 ## Added Menu Option to clear PS_Sessions
+# 10/26/20 V.1.1
+## Added Menu Option and function to Connect to Azure AD
+## Public Release to GitHub
 #####
 
 function Start-Menu
@@ -19,11 +25,11 @@ function Start-Menu
            [string]$Title = 'Delegated Access Menu'
      )
      Write-Host -foregroundcolor DarkBlue "================ $Title ================"
-    
+     Write-Host -foregroundcolor Green "A: Press 'A' To Connect to Azure AD."
      Write-Host -ForegroundColor Green "1: Press '1' To connect to MSOL."
      Write-Host -ForegroundColor Green "2: Press '2' To connect to EXO."
      Write-Host -ForegroundColor Green "3: Press '3' To connect to SFBO/Teams."
-     Write-Host -ForegroundColor Orange "K: Press 'K' to Kill all Powershell Sessions"
+     Write-Host -ForegroundColor Yellow "K: Press 'K' to Kill all Powershell Sessions"
      Write-Host -ForegroundColor DarkGreen "Q: Press 'Q' to quit."
 }
 
@@ -47,6 +53,12 @@ do
              '4' {
                  End-PSS
                  'Ending all PS Sessions.....' 
+             }
+                 'A' {
+                 Connect-msolservice
+                 Connect-AzureOrg
+                 'You are connected to Azure AD'   
+
              
 
 
